@@ -1,0 +1,40 @@
+{
+  "name": "pi-camera-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/JohannesFischer/pi-camera-client",
+  "scripts": {
+    "test": "eslint src && preact test",
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact build && preact serve",
+    "dev": "preact watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "eslint-config-synacor",
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "react/sort-comp": 0
+    }
+  },
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-config-synacor": "^2.0.0",
+    "if-env": "^1.0.0",
+    "preact-cli": "^1.4.1"
+  },
+  "dependencies": {
+    "express": "^4.15.5",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
+    "preact-router": "^2.5.7",
+    "ws": "^3.2.0"
+  }
+}
