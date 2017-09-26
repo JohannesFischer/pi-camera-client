@@ -1,6 +1,8 @@
 /* eslint-disable brace-style */
 
-export const socket = new WebSocket('ws://0.0.0.0:8080', 'protocolOne');
+import Config from '../config';
+
+export const socket = new WebSocket(`ws://${Config.ws.host}:${Config.ws.port}`, 'protocolOne');
 
 // socket.onopen = () => {
 //   socket.send('hello');
