@@ -1,12 +1,24 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-
+import { Provider } from 'preact-redux';
+// import { syncHistoryWithStore, routerReducer } from 'preact-router-redux';
+import store from '../lib/store';
 import Header from './header';
 import Home from '../routes/home';
 import Profile from '../routes/profile';
 import { socket } from '../lib/ws-client';
 // import Home from 'async!./home';
 // import Profile from 'async!./profile';
+
+// const store = createStore(
+//   combineReducers({
+//     ...reducers,
+//     routing: routerReducer
+//   })
+// )
+
+// Create an enhanced history that syncs navigation events with the store
+// const history = syncHistoryWithStore(browserHistory, store);
 
 export default class App extends Component {
 
@@ -33,12 +45,14 @@ export default class App extends Component {
   render() {
     return (
       <div id="app">
-        <Header />
-        <Router onChange={this.handleRoute}>
-          <Home path="/" />
-          <Profile path="/profile/" user="me" />
-          <Profile path="/profile/:user" />
-        </Router>
+        <Provider store={store}>
+          <Header />
+          <Router onChange={this.handleRoute}>
+            <Home path="/" />
+            <Profile path="/profile/" user="me" />
+            <Profile path="/profile/:user" />
+          </Router>
+        </Provider>
       </div>
     );
   }

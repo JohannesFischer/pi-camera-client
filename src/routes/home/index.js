@@ -4,16 +4,25 @@ import Button from '../../components/button';
 import Video from '../../components/video';
 import { socket } from '../../lib/ws-client';
 
+import { connect } from 'preact-redux';
+import { bindActions } from '../../lib/util';
+import reduce from '../../lib/reducers';
+import * as actions from '../../lib/actions';
+
+@connect(reduce, bindActions(actions))
+
 export default class Home extends Component {
-  // @bind
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     count: 0
+  //   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0
-    };
+  //   this.sendMessage = this.sendMessage.bind(this);
+  // }
 
-    this.sendMessage = this.sendMessage.bind(this);
+  doStuff() {
+    this.props.doStuff();
   }
 
   sendMessage(e) {
@@ -30,11 +39,11 @@ export default class Home extends Component {
     });
   }
 
-  render({}, { count }, { coount }) {
+  render({}, { count }) {
     return (
       <div class={style.home}>
         <Video />
-        <Button clickEvent={this.sendMessage} text="Send Message" />
+        <Button clickEvent={this.doStuff} text="Send Message" />
         <p>Messages sent: {count}</p>
       </div>
     );

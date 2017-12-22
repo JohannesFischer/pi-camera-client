@@ -1,7 +1,7 @@
 /* eslint-disable brace-style, no-console */
 
 const WebSocket = require('ws');
-const port = Config.ws.port; //9090;
+const port = 9090; //Config.ws.port;
 const wss = new WebSocket.Server({ port });
 
 console.log('WS server started on ws://0.0.0.0:%s', port);
