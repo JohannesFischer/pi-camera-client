@@ -12,3 +12,18 @@ node_modules/
 *.ntvs*
 *.njsproj
 *.sln
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+
+build
+
+# Lock files
+.package-lock.json
+.yarn.lock
