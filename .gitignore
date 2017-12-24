@@ -1,19 +1,17 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage
-
-# Dependency directories
+.DS_Store
 node_modules/
+/dist/
+.log
+/test/unit/coverage/
+/test/e2e/reports/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
 # Optional npm cache directory
 .npm
