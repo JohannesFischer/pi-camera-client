@@ -4,9 +4,20 @@ const wss = new WebSocket.Server({ port });
 
 console.log('WS server started on ws://0.0.0.0:%s', port);
 
+function getStatus() {
+  return {
+    clients: wss.clients.size,
+    stream: {
+      live: false
+    }
+  };
+};
+
 wss.on('connection', ws => {
+  console.log('incoming connection');
   ws.on('message', message => {
     let msg;
+    console.log(msg);
 
     try {
       msg = JSON.parse(message);
@@ -27,6 +38,7 @@ wss.on('connection', ws => {
 
   ws.send(JSON.stringify({
     message: 'Connected to WS',
-    type: 'message'
+    data: getStatus(),
+    type: 'status'
   }));
 });
