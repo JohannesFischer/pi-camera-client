@@ -1,5 +1,6 @@
 const WebSocket = require('ws');
-const port = 9090; // Config.ws.port;
+const config = require('./config');
+const port = config.ws.port;
 const wss = new WebSocket.Server({ port });
 
 console.log('WS server started on ws://0.0.0.0:%s', port);
@@ -15,6 +16,7 @@ function getStatus() {
 
 wss.on('connection', ws => {
   console.log('incoming connection');
+
   ws.on('message', message => {
     let msg;
     console.log(msg);

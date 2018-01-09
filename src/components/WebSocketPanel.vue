@@ -35,19 +35,19 @@ export default {
   created() {
     ws.onmessage = event => {
       this.updatePanel(event.data);
-    }
+    };
   },
   data() {
     return {
       status: {}
     };
   },
-   methods: {
-    send () {
+  methods: {
+    send() {
       ws.send({
         data: 'Hello',
         type: 'message'
-      })
+      });
     },
     updatePanel(status) {
       this.status = status;

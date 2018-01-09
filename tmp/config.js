@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   stream: {
     demo: 'assets/video/small.ogv',
     port: 8080,
